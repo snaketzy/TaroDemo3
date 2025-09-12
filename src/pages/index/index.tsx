@@ -1,10 +1,11 @@
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { View, Button, Text } from '@tarojs/components'
-// import { ApplicationState } from "../../store";
 import { updateCommonState } from "../../store/commonSlice";
 import './index.less'
 import { ApplicationState } from 'src/store';
+import { Grid } from "@taroify/core";
+import { PhotoOutlined } from "@taroify/icons";
+
 
 // #region 书写注意
 //
@@ -38,12 +39,11 @@ const Index = (props: Props) => {
 
 
   return (
-    <View className='index'>
-      <Button className='add_btn' onClick={() => dispatch(updateCommonState({ count: { num: commonModule.count.num + 1 } }))}>+</Button>
-      <Button className='dec_btn' onClick={() => dispatch(updateCommonState({ count: { num: commonModule.count.num - 1 } }))}>-</Button>
-      <View><Text>{commonModule.count.num}</Text></View>
-      <View><Text>测试数据</Text></View>
-    </View>
+    <Grid columns={3} direction="horizontal">
+      <Grid.Item icon={<PhotoOutlined />} text="文字" />
+      <Grid.Item icon={<PhotoOutlined />} text="文字" />
+      <Grid.Item icon={<PhotoOutlined />} text="文字" />
+    </Grid>
   );
 }
 
