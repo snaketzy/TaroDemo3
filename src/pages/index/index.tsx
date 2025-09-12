@@ -1,10 +1,10 @@
-import { Component, PropsWithChildren } from 'react'
-import { connect } from 'react-redux'
+import { Component, PropsWithChildren, useEffect } from 'react'
+import { connect, useSelector, useDispatch } from 'react-redux'
 import { View, Button, Text } from '@tarojs/components'
-
-import { add, minus, asyncAdd } from '../../actions/counter'
-
+// import { ApplicationState } from "../../store";
+import { updateCommonState } from "../../store/commonSlice";
 import './index.less'
+import { ApplicationState } from 'src/store';
 
 // #region 书写注意
 //
@@ -16,63 +16,35 @@ import './index.less'
 //
 // #endregion
 
-type PageStateProps = {
-  counter: {
-    num: number
-  }
+
+interface Props {
+  children?: React.ReactNode;
 }
 
-type PageDispatchProps = {
-  add: () => void
-  dec: () => void
-  asyncAdd: () => any
-}
+const Index = (props:Props) => {
 
-type PageOwnProps = {}
+  const commonModule = useSelector((state: ApplicationState) => state.commonSlice);
+  const dispatch = useDispatch();
 
-type PageState = {}
+  useEffect(() => {
 
-type IProps = PageStateProps & PageDispatchProps & PageOwnProps
+  },[props])
 
-interface Index {
-  props: IProps;
-}
+  useEffect(() => {
+    return () => {
+      console.log("Component will unmount")
+    }
+  },[])
 
-@connect(({ counter }) => ({
-  counter
-}), (dispatch) => ({
-  add () {
-    dispatch(add())
-  },
-  dec () {
-    dispatch(minus())
-  },
-  asyncAdd () {
-    dispatch(asyncAdd())
-  }
-}))
-class Index extends Component<PropsWithChildren> {
-  componentWillReceiveProps (nextProps) {
-    console.log(this.props, nextProps)
-  }
-
-  componentWillUnmount () { }
-
-  componentDidShow () { }
-
-  componentDidHide () { }
-
-  render () {
-    return (
-      <View className='index'>
-        <Button className='add_btn' onClick={this.props.add}>+</Button>
-        <Button className='dec_btn' onClick={this.props.dec}>-</Button>
-        <Button className='dec_btn' onClick={this.props.asyncAdd}>异步</Button>
-        <View><Text>{this.props.counter.num}</Text></View>
-        <View><Text>测试数据</Text></View>
-      </View>
-    )
-  }
+  
+  return (
+    <View className='index'>
+      <Button className='add_btn' onClick={ () => dispatch(updateCommonState({count:{num: commonModule.count.num + 1}})) }>+</Button>
+      <Button className='dec_btn' onClick={ () => dispatch(updateCommonState({count:{num: commonModule.count.num - 1}})) }>-</Button>
+      <View><Text>{commonModule.count.num}</Text></View>
+      <View><Text>测试数据</Text></View>
+    </View>
+  );
 }
 
 export default Index
