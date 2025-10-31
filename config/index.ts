@@ -6,7 +6,7 @@ import prodConfig from './prod'
 // https://taro-docs.jd.com/docs/next/config#defineconfig-辅助函数
 export default defineConfig<'webpack5'>(async (merge, { command, mode }) => {
   const baseConfig: UserConfigExport<'webpack5'> = {
-    projectName: 'TaroDemo3',
+    projectName: 'taro-weixin-exinbao',
     date: '2025-9-3',
     designWidth: 750,
     deviceRatio: {
@@ -22,6 +22,7 @@ export default defineConfig<'webpack5'>(async (merge, { command, mode }) => {
     },
     copy: {
       patterns: [
+        { from: 'src/images', to: `dist/${process.env.NODE_ENV}/${process.env.TARO_ENV}/images` }
       ],
       options: {
       }

@@ -1,0 +1,177 @@
+/* pages/mine/mine.wxss */
+.mineContent {
+  height: 100vh;
+  background-color: #F8F8FA;
+}
+.mineContent .firstSettingBox{
+  position: relative;
+  width: 100%;
+  height: 420rpx;
+}
+.mineContent .firstSettingBox .topBox{
+  position: absolute;
+  width: 100%;
+  bottom: -90rpx;
+}
+.firstSettingBox .topBox .settingBox{
+  margin-bottom: 0;
+  height: 232rpx;
+}
+.mineContent .navbarTxt{
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  z-index: 99;
+  color: #fff;
+  font-size: 30rpx;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+}
+.mineContent .navbarTxt text{
+  width: 100%;
+}
+
+.mineContent .minebg {
+  width: 100%;
+  height: 420rpx;
+  position: absolute;
+  border-radius: 0;
+  left: 0;
+  z-index: 0;
+}
+.mineContent .userInfoBox {
+  height: 101rpx;
+  padding: 0 40rpx;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 20rpx;
+  padding-top: 45rpx;
+}
+.mineContent .userInfoBox .loginTxt{
+  color: #fff;
+  font-size: 32rpx;
+}
+.mineContent .userInfoBox .avatar {
+  width: 101rpx;
+  height: 101rpx;
+  border-radius: 50%;
+  margin-right: 30rpx;
+}
+
+.mineContent .userInfoBox .nameAndCompany {
+  color: #fff;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.mineContent .nameAndCompany .companyTxt {
+  font-size: 30rpx;
+  margin-top: 10rpx;
+  font-weight: 500;
+}
+
+.mineContent .settingBox {
+  width: calc(100% - 60rpx);
+  /* width: 690rpx; */
+  min-height: 217rpx;
+  background-color: #fff;
+  margin: 0 30rpx 30rpx;
+  padding-top: 90rpx;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  border-radius: 16rpx;
+
+}
+.mineContent .settingBox .boxTitle{
+  position: absolute;
+  top: 22rpx;
+  left: 30rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #393939;
+  line-height: 37rpx;
+}
+.mineContent .settingBox .row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.firstSettingBox .topBox .boxTitle{
+  width: calc(100% - 60rpx);
+  display: flex;
+  justify-content: space-between;
+}
+.firstSettingBox .topBox .boxTitle .right{
+  font-size: 24rpx;
+  color: #999;
+  line-height: 33rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.firstSettingBox .topBox .boxTitle .right .rightImg{
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: 10rpx;
+}
+.mineContent .settingBox.numBox{
+  padding: 0 60rpx;
+  padding-top: 90rpx;
+}
+.mineContent .settingBox .settingList {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+.mineContent .settingBox .p24 {
+  padding: 24rpx 0;
+}
+.mineContent .settingBox .settingList text.numTxt{
+  font-size: 34rpx;
+  color: #393939;
+  font-weight: bold;
+  line-height: 42rpx;
+}
+.mineContent .settingBox.numBox .settingList text.listName{
+  font-size: 26rpx;
+  margin-top: 14rpx;
+}
+.mineContent .settingBox .settingList text.listName {
+  color: #666;
+  font-size: 28rpx;
+  white-space: nowrap;
+}
+
+.mineContent .settingBox .settingList image {
+  margin-bottom: 19rpx;
+}
+.mineContent .settingBox .settingList .badge{
+  min-width: 24rpx;
+  height: 24rpx;
+  padding: 4rpx;
+  position: absolute;
+  right: 20rpx;
+  top: -10rpx;
+  color: #fff;
+  border-radius: 16rpx;
+  text-align: center;
+  line-height: 24rpx;
+  background-color: #E15241;
+  font-size: 20rpx;
+}
+.mineContent .settingBox .employmentList {
+  position: relative;
+}
+.mineContent .settingBox .employmentList .tipImg {
+  position: absolute;
+  top: -8rpx;
+  left: 86rpx;
+  width: 96rpx;
+  height: 24rpx;
+}

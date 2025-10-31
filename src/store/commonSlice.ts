@@ -1,5 +1,13 @@
 import { createSlice, current }  from "@reduxjs/toolkit";
 
+/** 自定义导航栏接口 */
+export interface NavbarStyle {
+  navBarHeight: number;
+  navBarTop: number;
+  navBarBottom: number;
+  menuBottomInfo: any;
+  safeArea: number;
+}
 interface CountObject {
   num: number;
 }

@@ -1,8 +1,8 @@
 {
-  "name": "weixin-exinbao",
+  "name": "taro-weixin-exinbao",
   "version": "2.0.0",
   "private": true,
-  "description": "weixin-exinbao",
+  "description": "taro-weixin-exinbao",
   "templateInfo": {
     "name": "redux",
     "typescript": true,

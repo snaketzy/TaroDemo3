@@ -1,30 +1,15 @@
 {
-  "miniprogramRoot": "",
-  "projectname": "TaroDemo3",
-  "description": "TaroDemo3",
-  "appid": "wx2b1e23fc1c4cadd7",
+  "miniprogramRoot": "./",
+  "projectname": "taro-weixin-exinbao",
+  "description": "taro-weixin-exinbao",
+  "appid": "touristappid",
   "setting": {
     "urlCheck": true,
     "es6": false,
     "enhance": false,
     "compileHotReLoad": false,
     "postcss": false,
-    "minified": false,
-    "babelSetting": {
-      "ignore": [],
-      "disablePlugins": [],
-      "outputPath": ""
-    }
+    "minified": false
   },
-  "compileType": "miniprogram",
-  "libVersion": "3.10.0",
-  "packOptions": {
-    "ignore": [],
-    "include": []
-  },
-  "condition": {},
-  "editorSetting": {
-    "tabIndent": "insertSpaces",
-    "tabSize": 2
-  }
+  "compileType": "miniprogram"
 }

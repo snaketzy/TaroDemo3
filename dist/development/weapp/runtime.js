@@ -14,13 +14,16 @@
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
+/******/ 			id: moduleId,
+/******/ 			loaded: false,
 /******/ 			exports: {}
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -139,7 +142,7 @@
 /******/ 	/* webpack/runtime/load script */
 /******/ 	!function() {
 /******/ 		var inProgress = {};
-/******/ 		var dataWebpackPrefix = "TaroDemo3:";
+/******/ 		var dataWebpackPrefix = "taro-weixin-exinbao:";
 /******/ 		// loadScript function to load a script via script tag
 /******/ 		__webpack_require__.l = function(url, done, key, chunkId) {
 /******/ 			if(inProgress[url]) { inProgress[url].push(done); return; }
@@ -193,20 +196,27 @@
 /******/ 		};
 /******/ 	}();
 /******/ 	
+/******/ 	/* webpack/runtime/node module decorator */
+/******/ 	!function() {
+/******/ 		__webpack_require__.nmd = function(module) {
+/******/ 			module.paths = [];
+/******/ 			if (!module.children) module.children = [];
+/******/ 			return module;
+/******/ 		};
+/******/ 	}();
+/******/ 	
 /******/ 	/* webpack/runtime/remotes loading */
 /******/ 	!function() {
 /******/ 		var chunkMapping = {
 /******/ 			"app": [
 /******/ 				"webpack/container/remote/@tarojs/plugin-platform-weapp/dist/runtime",
 /******/ 				"webpack/container/remote/@tarojs/plugin-framework-react/dist/runtime",
-/******/ 				"webpack/container/remote/@tarojs/taro",
-/******/ 				"webpack/container/remote/redux",
-/******/ 				"webpack/container/remote/redux-thunk",
-/******/ 				"webpack/container/remote/redux-logger",
+/******/ 				"webpack/container/remote/@reduxjs/toolkit",
 /******/ 				"webpack/container/remote/react-dom"
 /******/ 			],
 /******/ 			"common": [
 /******/ 				"webpack/container/remote/@tarojs/runtime",
+/******/ 				"webpack/container/remote/@tarojs/taro",
 /******/ 				"webpack/container/remote/react",
 /******/ 				"webpack/container/remote/react-redux",
 /******/ 				"webpack/container/remote/react/jsx-runtime"
@@ -223,24 +233,9 @@
 /******/ 				"./@tarojs/plugin-framework-react/dist/runtime",
 /******/ 				null
 /******/ 			],
-/******/ 			"webpack/container/remote/@tarojs/taro": [
+/******/ 			"webpack/container/remote/@reduxjs/toolkit": [
 /******/ 				"default",
-/******/ 				"./@tarojs/taro",
-/******/ 				null
-/******/ 			],
-/******/ 			"webpack/container/remote/redux": [
-/******/ 				"default",
-/******/ 				"./redux",
-/******/ 				null
-/******/ 			],
-/******/ 			"webpack/container/remote/redux-thunk": [
-/******/ 				"default",
-/******/ 				"./redux-thunk",
-/******/ 				null
-/******/ 			],
-/******/ 			"webpack/container/remote/redux-logger": [
-/******/ 				"default",
-/******/ 				"./redux-logger",
+/******/ 				"./@reduxjs/toolkit",
 /******/ 				null
 /******/ 			],
 /******/ 			"webpack/container/remote/react-dom": [
@@ -251,6 +246,11 @@
 /******/ 			"webpack/container/remote/@tarojs/runtime": [
 /******/ 				"default",
 /******/ 				"./@tarojs/runtime",
+/******/ 				null
+/******/ 			],
+/******/ 			"webpack/container/remote/@tarojs/taro": [
+/******/ 				"default",
+/******/ 				"./@tarojs/taro",
 /******/ 				null
 /******/ 			],
 /******/ 			"webpack/container/remote/react": [
@@ -295,7 +295,8 @@
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
-/******/ 			"runtime": 0
+/******/ 			"runtime": 0,
+/******/ 			"common": 0
 /******/ 		};
 /******/ 		
 /******/ 		__webpack_require__.f.j = function(chunkId, promises) {
@@ -307,7 +308,7 @@
 /******/ 					if(installedChunkData) {
 /******/ 						promises.push(installedChunkData[2]);
 /******/ 					} else {
-/******/ 						if("runtime" != chunkId) {
+/******/ 						if(!/^(common|runtime)$/.test(chunkId)) {
 /******/ 							// setup Promise in chunk cache
 /******/ 							var promise = new Promise(function(resolve, reject) { installedChunkData = installedChunks[chunkId] = [resolve, reject]; });
 /******/ 							promises.push(installedChunkData[2] = promise);

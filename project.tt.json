@@ -1,6 +1,6 @@
 {
   "miniprogramRoot": "./",
-  "projectname": "TaroDemo3",
+  "projectname": "taro-weixin-exinbao",
   "appid": "testAppId",
   "setting": {
     "es6": false,
